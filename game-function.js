@@ -17,7 +17,30 @@ let userSelection = prompt("Rock, paper, or scissors?");
 
 console.log(userSelection); 
 
-/* Create series of if/else functions that determine win/loss scenarios. */
+/* Create series of if/else functions that determine win/loss scenarios. */ 
+
+const win = ["You win!"];
+const tie = ["It's a tie!"];
+const lose = ["You lose!"]; 
+
+function gameResults() {
+    if (userSelection == computerSelection) {
+        return tie; 
+    } else if (userSelection == "rock" && computerSelection == "paper") {
+        return lose;
+    } else if (userSelection == "rock" && computerSelection == "scissors") {
+        return win;
+    } else if (userSelection == "paper" && computerSelection == "scissors") {
+        return lose;
+    } else if (userSelection == "paper" && computerSelection == "rock") {
+        return win; 
+    } else if (userSelection == "scissors" && computerSelection == "rock") {
+        return lose;
+    } else if (userSelection == "scissors" && computerSelection == "paper") {
+        return win;
+    }
+} 
+
 
 /* Make the users input case insensitive */
 
