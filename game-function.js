@@ -13,6 +13,10 @@ console.log(computerSelection(choices));
 
 /* Prompt user for their selection: rock, paper, or scissors */
 
+let userSelection = prompt("Rock, paper, or scissors?"); 
+
+console.log(userSelection); 
+
 /* Create series of if/else functions that determine win/loss scenarios. */
 
 /* Make the users input case insensitive */
