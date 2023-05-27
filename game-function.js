@@ -9,13 +9,11 @@ function computerSelection(choices) {
 return choices[Math.floor(Math.random()*choices.length)];
 }
 
-console.log(computerSelection(choices));
-
 /* Prompt user for their selection: rock, paper, or scissors */
 
 let userSelection = prompt("Rock, paper, or scissors?"); 
 
-console.log(userSelection); 
+console.log("User choice is " + userSelection + "!"); 
 
 /* Create series of if/else functions that determine win/loss scenarios. */ 
 
@@ -39,9 +37,13 @@ function gameResults(computerSelection, userSelection) {
     } else if (userSelection == "scissors" && computerSelection == "paper") {
         return win;
     }
-} 
+}
 
-console.log(gameResults(computerSelection(choices), userSelection));
+const computerChoice = computerSelection(choices); 
+
+console.log("Computer choice is " + computerChoice + "!"); 
+
+console.log(gameResults(computerChoice, userSelection)) 
 
 /* Make the users input case insensitive */
 
