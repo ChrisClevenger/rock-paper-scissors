@@ -11,7 +11,11 @@ return choices[Math.floor(Math.random()*choices.length)];
 
 /* Prompt user for their selection: rock, paper, or scissors */
 
-let userSelection = prompt("Rock, paper, or scissors?"); 
+let userInput = prompt("Rock, paper, or scissors?"); 
+
+/* Make the users input case insensitive */
+
+const userSelection = userInput.toLowerCase(); 
 
 console.log("User choice is " + userSelection + "!"); 
 
@@ -44,8 +48,6 @@ const computerChoice = computerSelection(choices);
 console.log("Computer choice is " + computerChoice + "!"); 
 
 console.log(gameResults(computerChoice, userSelection)) 
-
-/* Make the users input case insensitive */
 
 /* Console log the results playRound */
 
