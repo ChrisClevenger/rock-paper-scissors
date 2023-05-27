@@ -23,8 +23,8 @@ const win = ["You win!"];
 const tie = ["It's a tie!"];
 const lose = ["You lose!"]; 
 
-function gameResults() {
-    if (userSelection == computerSelection) {
+function gameResults(computerSelection, userSelection) {
+    if (userSelection === computerSelection) {
         return tie; 
     } else if (userSelection == "rock" && computerSelection == "paper") {
         return lose;
@@ -41,6 +41,7 @@ function gameResults() {
     }
 } 
 
+console.log(gameResults(computerSelection(choices), userSelection));
 
 /* Make the users input case insensitive */
 
