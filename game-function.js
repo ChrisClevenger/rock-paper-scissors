@@ -1,54 +1,65 @@
 /* This is the first iteration of the game. It will be played completely from the console. */
-/* The first function will getComputerChoice and will return either "Rock", "Paper", or "Scissors".*/
-console.log("Hello world!");
+/* The first function will getComputerChoice and will return either "Rock", "Paper", or "Scissors". */
 
 const choices = ["rock", "paper", "scissors"];
 
 function computerSelection(choices) {
-
-return choices[Math.floor(Math.random()*choices.length)];
+  return choices[Math.floor(Math.random() * choices.length)];
 }
 
-/* Prompt user for their selection: rock, paper, or scissors */
+const win = "You WIN this round!";
+const tie = "This round is a TIE!";
+const lose = "You LOSE this round!";
 
-let userInput = prompt("Rock, paper, or scissors?"); 
+/* Create a series of if else statements to calculate conditions for wins and loses.  */
 
-/* Make the users input case insensitive */
+function playRound(computerSelection, userSelection) {
+  if (userSelection === computerSelection) {
+    console.log(tie);
+    return "tie";
+  } else if (
+    (userSelection === "rock" && computerSelection === "scissors") ||
+    (userSelection === "paper" && computerSelection === "rock") ||
+    (userSelection === "scissors" && computerSelection === "paper")
+  ) {
+    console.log(win);
+    return "win";
+  } else {
+    console.log(lose);
+    return "lose";
+  }
+}
 
-const userSelection = userInput.toLowerCase(); 
+/* Loop the game so as to create a 'best of five' game cycle using a function called game() */
 
-console.log("User choice is " + userSelection + "!"); 
+function game() {
+  let userWins = 0;
+  let computerWins = 0;
 
-/* Create series of if/else functions that determine win/loss scenarios. */ 
+  while (userWins < 3 && computerWins < 3) {
 
-const win = ["You win!"];
-const tie = ["It's a tie!"];
-const lose = ["You lose!"]; 
+    /* Prompt user for their selection: rock, paper, or scissors */
 
-function gameResults(computerSelection, userSelection) {
-    if (userSelection === computerSelection) {
-        return tie; 
-    } else if (userSelection == "rock" && computerSelection == "paper") {
-        return lose;
-    } else if (userSelection == "rock" && computerSelection == "scissors") {
-        return win;
-    } else if (userSelection == "paper" && computerSelection == "scissors") {
-        return lose;
-    } else if (userSelection == "paper" && computerSelection == "rock") {
-        return win; 
-    } else if (userSelection == "scissors" && computerSelection == "rock") {
-        return lose;
-    } else if (userSelection == "scissors" && computerSelection == "paper") {
-        return win;
+    const userInput = prompt("Rock, paper, or scissors?");
+
+    /* Make the user input case insensitive. */
+
+    const userSelection = userInput.toLowerCase();
+    const computerChoice = computerSelection(choices);
+    const roundResult = playRound(computerChoice, userSelection);
+
+    if (roundResult === "win") {
+      userWins++;
+    } else if (roundResult === "lose") {
+      computerWins++;
     }
+  }
+
+  if (userWins > computerWins) {
+    console.log("Congratulations! You win the game!");
+  } else {
+    console.log("You lost the game. Better luck next time!");
+  }
 }
 
-const computerChoice = computerSelection(choices); 
-
-console.log("Computer choice is " + computerChoice + "!"); 
-
-console.log(gameResults(computerChoice, userSelection)) 
-
-/* Console log the results playRound */
-
-/* Loop the game so as to create a 'best of five' game cycle using a function called game()*/
+game();
