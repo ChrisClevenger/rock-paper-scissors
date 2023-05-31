@@ -51,10 +51,12 @@ function playRound(computerSelection, userSelection) {
 function checkGameResult() {
   if (userWins === 3) {
     console.log("You won the game!");
-    resetGame();
+    disableButtons(); 
+    reset.appendChild(resetButton); 
   } else if (computerWins === 3) {
     console.log("You lost the game!");
-    resetGame();
+    disableButtons(); 
+    reset.appendChild(resetButton); 
   }
   updateScoreDisplay();
 }
@@ -78,6 +80,19 @@ const scissorsButton = document.querySelector("#scissorsButton");
 
 const scoreboard = document.querySelector(".results"); 
 const bestOf = document.querySelector(".bestOf"); 
+const reset = document.querySelector(".reset"); 
+
+const resetButton = document.createElement('button'); 
+resetButton.textContent = "Reset the Game"; 
+resetButton.addEventListener("click", () => {
+  location.reload(); 
+})
+
+function disableButtons() {
+  rockButton.disabled = true; 
+  paperButton.disabled = true; 
+  scissorsButton.disabled = true; 
+}
 
 
 rockButton.addEventListener("click", () => {
