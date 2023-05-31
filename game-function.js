@@ -56,6 +56,15 @@ function checkGameResult() {
     console.log("You lost the game!");
     resetGame();
   }
+  updateScoreDisplay();
+}
+
+function updateScoreDisplay() {
+  const userScore = document.querySelector(".user-score");
+  const computerScore = document.querySelector(".computer-score");
+
+  userScore.textContent = `User: ${userWins}`;
+  computerScore.textContent = `Computer: ${computerWins}`;
 }
 
 function resetGame() {
