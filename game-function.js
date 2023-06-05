@@ -14,15 +14,15 @@ function playRound(computerSelection, userSelection) {
 
   const winLog = document.createElement('p');
   winLog.style.cssText = "color: red;"; 
-  winLog.textContent = "You fucking won this round!"; 
+  winLog.textContent = `Your ${userSelection} beats ${computerSelection}. You won this round!`; 
 
   const lossLog = document.createElement('p');
   lossLog.style.cssText = "color: red;"; 
-  lossLog.textContent = "Doofus! You lost this round!"; 
+  lossLog.textContent = `The CPU's ${computerSelection} beats your ${userSelection}. You lost this round!`; 
 
   const tieLog = document.createElement('p');
   tieLog.style.cssText = "color: red;"; 
-  tieLog.textContent = "Evenly matched! This round is a tie!"; 
+  tieLog.textContent = `Evenly matched! ${userSelection} vs. ${computerSelection}!`; 
 
   if (userSelection === computerSelection) {
     console.log(tie);
