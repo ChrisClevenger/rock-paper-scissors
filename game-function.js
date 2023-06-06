@@ -14,15 +14,15 @@ function playRound(computerSelection, userSelection) {
 
   const winLog = document.createElement('p');
   winLog.style.cssText = "color: red;"; 
-  winLog.textContent = `Your ${userSelection} beats ${computerSelection}. You won this round!`; 
+  winLog.textContent = `Your ${userSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}. You won this round!`; 
 
   const lossLog = document.createElement('p');
   lossLog.style.cssText = "color: red;"; 
-  lossLog.textContent = `The CPU's ${computerSelection} beats your ${userSelection}. You lost this round!`; 
+  lossLog.textContent = `The CPU's ${computerSelection.toUpperCase()} beats your ${userSelection.toUpperCase()}. You lost this round!`; 
 
   const tieLog = document.createElement('p');
   tieLog.style.cssText = "color: red;"; 
-  tieLog.textContent = `Evenly matched! ${userSelection} vs. ${computerSelection}!`; 
+  tieLog.textContent = `Evenly matched! ${userSelection.toUpperCase()} vs. ${computerSelection.toUpperCase()}!`; 
 
   if (userSelection === computerSelection) {
     console.log(tie);
@@ -54,7 +54,7 @@ function checkGameResult() {
     disableButtons(); 
     reset.appendChild(resetButton); 
   } else if (computerWins === 3) {
-    console.log("You lost the game!");
+    console.log("You lost the game!"); 
     disableButtons(); 
     reset.appendChild(resetButton); 
   }
